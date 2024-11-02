@@ -4,6 +4,6 @@
  * @param {number} secondNumber
  * @returns {string}
  */
-module.exports.compareTwoNumbers = function compareTwoNumbers(firstNumber, secondNumber) {
-  throw new Error('Not implemented');
-};
+module.exports.compareTwoNumbers = ( firstNumber, secondNumber ) => firstNumber > secondNumber ? '>' :
+  firstNumber < secondNumber ? '<' : '='
+;

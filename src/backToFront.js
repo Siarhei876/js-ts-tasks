@@ -5,5 +5,12 @@
  * @returns {string}
  */
 module.exports.backToFront = function backToFront(str, symbolsCount) {
-  throw new Error('Not implemented');
-};
+
+  let slice = str.split('').reverse().slice(0, symbolsCount).reverse().join('');
+
+  return symbolsCount > str.length ?
+    str : 
+    slice + str + slice
+  ;
+
+}

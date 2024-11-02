@@ -5,5 +5,9 @@
  * @returns {number}
  */
 module.exports.sumTwoNumbers = function sumTwoNumbers(firstNumber, secondNumber) {
-  throw new Error('Not implemented');
+
+  const normalizeNum = ( num ) => Number( String(num).replace( /[^0-9+-.]/g, '') ) 
+
+  return normalizeNum(firstNumber) + normalizeNum(secondNumber)
+  
 };
