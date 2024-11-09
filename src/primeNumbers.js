@@ -5,4 +5,5 @@
  */
 module.exports.primeNumbers = function primeNumbers(highestNumber) {
   throw new Error('Not implemented'); // remove me and write a solution
+  //fggf
 };
