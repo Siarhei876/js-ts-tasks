@@ -7,6 +7,12 @@
  * @param {Array<number>} arr
  * @returns {Array<number>}
  */
-module.exports.replacement = function replacement(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+module.exports.replacement = function replacement( arr ) {
+  
+  const result = arr.map( ( el ) => {
+    const numLen = String( Math.abs(el) ).length
+    return el = numLen >= 4 ? 4 : numLen 
+  })
+
+  return result
 };

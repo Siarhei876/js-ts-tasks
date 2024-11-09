@@ -3,6 +3,4 @@
  * @param {Object} arr
  * @returns {number}
  */
-module.exports.diffElems = function diffElems(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+module.exports.diffElems = (arr) => new Set(arr).size

@@ -7,5 +7,10 @@
  * @returns {number}
  */
 module.exports.getDistance = function getDistance(firstPoint, secondPoint) {
-  throw new Error('Not implemented'); // remove me and write a solution
+ 
+  const calcHypotenuse = ( a, b ) => Math.sqrt( a**2 + b**2 )
+  const roundToDecimals = ( num, precision ) => Math.round( num * 100 ) / 100
+
+  return roundToDecimals( calcHypotenuse( firstPoint.X - secondPoint.X, firstPoint.Y - secondPoint.Y ) ) 
+
 };

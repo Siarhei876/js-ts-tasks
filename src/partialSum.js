@@ -11,6 +11,18 @@
  * @param {Object} arr
  * @returns {Object}
  */
-module.exports.partialSum = function partialSum(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+module.exports.partialSum = function partialSum( arr ) {
+  
+  const result = [];
+  let sum = 0;
+
+  for ( let el of arr ){
+    
+    sum += el
+    result.push( sum )
+
+  }
+
+  return result
+
 };

@@ -5,5 +5,12 @@
  * @returns {Object}
  */
 module.exports.removeItems = function removeItems(arr, value) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  
+  const result = []
+  const checkNonEquality = ( el ) => typeof el === "object" ? JSON.stringify( el ) !== JSON.stringify( value ) : el !== value
+
+  for ( let el of arr ) if ( checkNonEquality( el ) ) result.push( el )
+
+  return result
+
 };

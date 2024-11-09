@@ -4,6 +4,4 @@
  * @param {Object} prop
  * @returns {boolean}
  */
-module.exports.hasProperty = function hasProperty(object, prop) {
-  throw new Error('Not implemented'); // remove me and write a solution
-};
+module.exports.hasProperty = ( object, prop ) => prop in object ;
