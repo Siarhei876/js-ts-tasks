@@ -13,6 +13,15 @@
  * @param {Array} forbidden
  * @returns {function}
  */
-module.exports.censorship = function censorship(forbidden) {
-  throw new Error('Not implemented'); // remove me and write a solution
+module.exports.censorship = function censorship( forbidden ) {
+
+  return function ( str ){
+    
+    forbidden.forEach(( el, i, arr) => {
+      str = str.replace( new RegExp( `${el}`, 'g' ), '*'.repeat( el.length ) )
+    })
+
+    return str
+
+  }
 };

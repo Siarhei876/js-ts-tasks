@@ -8,6 +8,12 @@
  * @param {Array} order
  * @returns {function}
  */
-module.exports.formatAddressWithOrder = function formatAddressWithOrder(order) {
-  throw new Error('Not implemented'); // remove me and write a solution
+module.exports.formatAddressWithOrder = function formatAddressWithOrder( order ) {
+
+  return function( adress ){
+    return order.reduce(( acc, curV) => {
+      return acc + adress[curV] + ', '
+    }, '').slice( 0, -2 )
+  }
+
 };
