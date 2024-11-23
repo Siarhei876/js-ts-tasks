@@ -23,7 +23,7 @@ module.exports.primeNumbers = function primeNumbers( highestNumber ) {
   }
 
   const indexOfClosestPrime = function( num, startOrEnd ){
-    //will search cash for first Prime from start and last Prime before end IN CASH
+    //will search index for first Prime from start and last Prime before end. In cash
 
     let indexOfNum = cash.indexOf( num ) 
     if ( indexOfNum !== -1 ) return indexOfNum
