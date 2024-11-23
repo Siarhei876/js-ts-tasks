@@ -4,11 +4,11 @@
  * @returns {function}
  */
 module.exports.formatAddress = function formatAddress() {
-  
-  console.log(object);
 
-  return function( street, house, apartment, city, postalCode, country ){
-    return `${street}, ${house}, ${apartment}, ${city}, ${postalCode}, ${country}`
+  return function( obj ){
+
+    const { street, house, apartment, city, postalCode, country } = obj
+    return `${street || ' '}, ${house || ' '}, ${apartment || ' '}, ${city || ' '}, ${postalCode || ' '}, ${country || ' '}`
   }
 
 };

@@ -5,34 +5,56 @@
  */
 module.exports.primeNumbers = function primeNumbers( highestNumber ) {
 
-  const cash = [ 1, 2, 3, 5, 7 ]
+  const cash = [ 2, 3, 5, 7 ]
 
+  //calculates nextPrime from cash.last to end or highestNumber
   const isNextPrime = function( number ){
 
-    for ( prime of cash ){
-      if ( number % prime === 0 ) return false
+    if ( number < 8 ) return false
+    for ( let i = 0; cash[ i ] <= Math.sqrt( number ) ; i++ ){
+
+      if ( ( ( number % cash[ i ] === 0 ) ) ){
+
+        return false
+      }
     }
 
     return true
+  }
+
+  const indexOfClosestPrime = function( num, startOrEnd ){
+    //will search cash for first Prime from start and last Prime before end IN CASH
+
+    let indexOfNum = cash.indexOf( num ) 
+    if ( indexOfNum !== -1 ) return indexOfNum
+
+    if ( startOrEnd === 'end' ) return cash.length -1
+
+    while ( num < cash[ cash.length - 1 ]){
+
+      num++
+      indexOfNum = cash.indexOf( num )
+      if ( indexOfNum !== -1 ) return indexOfNum  
+
+    }
 
   }
   
   return function( start, end ){
 
-    console.log(`Start: ${start}, End: ${end}`);
+    end = end < highestNumber ? end : highestNumber
+    const lastKnownPrime = cash[ cash.length - 1 ];
 
-    const lastKnownPrime = cash[ cash.length - 1 ]
-    // console.log(lastKnownPrime);
+    for ( let i = lastKnownPrime; i <= end; i++ ){
 
-    for ( let i = lastKnownPrime + 1; i <= end; i++ ){
       if ( isNextPrime( i ) ) cash.push( i )
     }
 
-    const indexOfStart = cash.indexOf( start ) === -1 ? 0 : cash.indexOf( start )
-    const indexOfEnd = cash.indexOf( end ) === -1 ? cash[ cash.length - 1 ] : cash.indexOf( end )
+    const indexOfStart = indexOfClosestPrime( start, 'start' )
+    const indexOfEnd = indexOfClosestPrime( end, 'end')
 
-    console.log(cash.length);
-    // return cash.slice( indexOfStart , indexOfEnd )
+    if ( indexOfStart === undefined || indexOfEnd === undefined ) return []
+    return cash.slice( indexOfStart , indexOfEnd + 1 )
 
   }
 
