@@ -22,6 +22,12 @@
  * @param {{ sumAllObjectProperties: function() }} TestUtils
  * @returns {function}
  */
-module.exports.payments = function payments(TestUtils) {
-  throw new Error('Not implemented'); // remove this line and create your solution
+module.exports.payments = function payments( TestUtils ) {
+
+
+  
+  return function ( income, debts ){
+    const countObjNumericFields = ( obj ) => TestUtils.sumAllObjectProperties.call( obj )
+    return countObjNumericFields( income ) - countObjNumericFields( debts )
+  };
 };
