@@ -20,12 +20,16 @@ class User {
   }
 
   set firstName( newFirstName ){
-    if ( typeof firstName !== 'string' ) throw new Error( "Wrong first name provided" )
-    this.#firstName = newFirstName
+  
+    if ( typeof newFirstName !== 'string' ){
+      throw new Error( `Wrong first name provided: ${ typeof newFirstName }` )
+    } else this.#firstName = newFirstName
   }
   set secondName( newSecondName ){
-    if ( typeof firstName !== 'string' ) throw new Error( "Wrong second name provided" )
-    this.#secondName = newSecondName
+    
+    if ( typeof newSecondName !== 'string' ){
+      throw new Error( `Wrong second name provided: ${ typeof newSecondName }` )
+    } else this.#secondName = newSecondName
   }
 
   get name(){
