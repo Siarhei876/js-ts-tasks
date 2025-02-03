@@ -8,9 +8,11 @@
 
 
 module.exports.converter = function (value: number, from: string, to: string): number {
+
+  console.log(value + ` from: ${from} + to: ${to}` );
   const conversionRoutes = {
     meterToMile: (meter: number) => meter / 1609.34,
-    mileToMeter: (mile: number) => mile * 1609.34,
+    mileToMeter: (mile: number) => mile * 1609.344,
     gramToPound: (gram: number) => gram * 0.00220462,
     poundToGram: (pound: number) => pound * 453.592,
     celsiusToKelvin: (celsius: number) => celsius + 273.15,

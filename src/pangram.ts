@@ -14,7 +14,6 @@ module.exports.pangram = function (word: string | number): boolean {
   }
 
   for ( let i:number = charCodesShallBe.from; i<= charCodesShallBe.to; i++ ){
-    console.log(String.fromCharCode(i));
     if ( !wordToCheck.includes(String.fromCharCode(i)) ) return false;
   };
 
