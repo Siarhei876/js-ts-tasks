@@ -10,6 +10,23 @@
  * @returns {Object<employees: Array<any>, contractors: Array<any>>}
  */
 module.exports.groupUsers = function (users: Array<unknown>): Record<'employees' | 'contractors', Array<unknown>> {
-  // replace Array<unknown> with your own types
-  throw new Error('Not implemented'); // delete this line and write your code
+
+  const result: Record<'employees' | 'contractors', Array<unknown>> = {
+    employees: [],
+    contractors: [],
+  }
+  
+  users.forEach((el) => {
+  
+    if ( typeof el === 'object' && el !== null ){
+      const teamMember = el as { [key: string]: unknown }
+      if (teamMember['type'] === 'EMPLOYEE') {     
+        result.employees.push(teamMember);
+      } else if (teamMember['type'] === 'CONTRACTOR') {
+        result.contractors.push(teamMember);
+      }
+    }
+  });
+
+  return result;
 };

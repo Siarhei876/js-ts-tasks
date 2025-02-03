@@ -6,5 +6,18 @@
  * @returns {boolean}
  */
 module.exports.pangram = function (word: string | number): boolean {
-  throw new Error('Not implemented'); // delete this line and write your code
+  
+  const wordToCheck: string = String(word).toLowerCase(); 
+  let charCodesShallBe = {
+    from: typeof word === 'number' ? 48 : 97, 
+    to: typeof word === 'number' ? 57 : 122,
+  }
+
+  for ( let i:number = charCodesShallBe.from; i<= charCodesShallBe.to; i++ ){
+    console.log(String.fromCharCode(i));
+    if ( !wordToCheck.includes(String.fromCharCode(i)) ) return false;
+  };
+
+  return true;
+
 };
